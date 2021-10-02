@@ -4,11 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "install": "node-gyp rebuild"
+    "install": "run-script-os",
+    "install:win32": "IF exist .\\src\\osu-difficulty-calculator ( cd src\\osu-difficulty-calculator && git pull && cd ..\\.. && npm run build ) ELSE ( git clone --recursive https://github.com/ppy/osu-difficulty-calculator src/osu-difficulty-calculator && npm run build )",
+    "install:darwin:linux": "git clone --recursive https://github.com/ppy/osu-difficulty-calculator src/osu-difficulty-calculator 2>/dev/null || (cd src/osu-difficulty-calculator ; git pull ; cd ../..) && npm run build",
+    "build": "node ./src/build.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "nan": "^2.15.0"
+    "edge-js": "^16.6.0",
+    "npmlog": "^5.0.1",
+    "run-script-os": "^1.1.6"
   }
 }

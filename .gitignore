@@ -1,1 +1,5 @@
 node_modules/
+build/
+src/osu-difficulty-calculator/
+osu_Server_DifficultyCalculator.dll
+.vscode/
