@@ -8,9 +8,9 @@ namespace osu.Server.DifficultyCalculator {
 	[ComVisible(true)]
 	public class CalcClass
     {
-        public async Task<object> Calc(object _rulesetID, object _beatmapID) {
-			int rulesetID = (int) _rulesetID;
-			int beatmapID = (int) _beatmapID;
+        public async Task<object> Calc(dynamic input) {
+			int rulesetID = (int) input.rulesetID;
+			int beatmapID = (int) input.beatmapID;
 			LegacyDifficultyCalculatorBeatmapDecoder.Register();
 			var calc = new ServerDifficultyCalculator(rulesetID);
 			var beatmap = BeatmapLoader.GetBeatmap(beatmapID, true, false);
