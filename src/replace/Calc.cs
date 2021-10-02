@@ -6,9 +6,9 @@ using osu.Game.Beatmaps.Formats;
 
 namespace osu.Server.DifficultyCalculator {
 	[ComVisible(true)]
-	public class CalcClass
+	public class Startup
     {
-        public async Task<object> Calc(dynamic input) {
+        public async Task<object> Invoke(dynamic input) {
 			int rulesetID = (int) input.rulesetID;
 			int beatmapID = (int) input.beatmapID;
 			LegacyDifficultyCalculatorBeatmapDecoder.Register();
