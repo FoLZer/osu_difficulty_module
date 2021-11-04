@@ -1,3 +1,4 @@
+process.env.EDGE_USE_CORECLR=1
 const edge = require("edge-js");
 
 const Calc = edge.func({
